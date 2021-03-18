@@ -1,44 +1,58 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using UnityEngine;
 
 public class AnimationStateController : MonoBehaviour
 {
+    public float sphereCastRadius;
+    private RunController _runController;
     private Animator _animator;
     private int isWalkingHash;
     private int isRunningHash;
     // Start is called before the first frame update
     void Start()
     {
+        _runController = GetComponent<RunController>();
         _animator = GetComponent<Animator>();
-        isWalkingHash = Animator.StringToHash("isWalking");
+        //isWalkingHash = Animator.StringToHash("isWalking");
         isRunningHash = Animator.StringToHash("isRunning");
+        InvokeRepeating("CheckPlayerNearby", 0, 0.5f);
     }
 
     // Update is called once per frame
     void Update()
     {
+        
+    }
+
+    void CheckPlayerNearby()
+    {
         bool isRunning = _animator.GetBool(isRunningHash);
-        bool isWalking = _animator.GetBool(isWalkingHash);
-        bool forwardPressed = Input.GetKey("t");
-        bool runPressed = Input.GetKey("left shift");
-        if (!isWalking && forwardPressed)
+        Collider[] hitColliders = Physics.OverlapSphere(transform.position, sphereCastRadius);
+        bool playerNearby = false;
+        foreach (var hit in hitColliders)
         {
-            _animator.SetBool(isWalkingHash, true);
+            if (hit.transform.CompareTag("Player"))
+            {
+                // This character is close enough to talk to, stop walking and turn towards them. 
+                playerNearby = true;
+                _runController.Running = false;
+                if (isRunning)
+                {
+                    _animator.SetBool(isRunningHash, false);
+                }
+            }
         }
-        if (isWalking && !forwardPressed)
-        {
-            _animator.SetBool(isWalkingHash, false);
+        if(!playerNearby)
+        {   
+            // The OverlapSphere did not find anything, run again
+            _runController.Running = true;
+            if (!isRunning)
+            {
+                _animator.SetBool(isRunningHash, true);
+            }
         }
-
-        if (!isRunning && (forwardPressed && runPressed))
-        {
-            _animator.SetBool(isRunningHash, true);
-        }
-
-        if (isRunning && (!forwardPressed || !runPressed))
-        {
-            _animator.SetBool(isRunningHash, false);
-        }
+        
     }
 }
