@@ -8,22 +8,13 @@ public class AnimationStateController : MonoBehaviour
     public float sphereCastRadius;
     private RunController _runController;
     private Animator _animator;
-    private int isWalkingHash;
     private int isRunningHash;
-    // Start is called before the first frame update
     void Start()
     {
         _runController = GetComponent<RunController>();
         _animator = GetComponent<Animator>();
-        //isWalkingHash = Animator.StringToHash("isWalking");
         isRunningHash = Animator.StringToHash("isRunning");
         InvokeRepeating("CheckPlayerNearby", 0, 0.5f);
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     void CheckPlayerNearby()
@@ -46,7 +37,7 @@ public class AnimationStateController : MonoBehaviour
         }
         if(!playerNearby)
         {   
-            // The OverlapSphere did not find anything, run again
+            // The OverlapSphere did not find anything, start physically running again along bezier curve path
             _runController.Running = true;
             if (!isRunning)
             {
