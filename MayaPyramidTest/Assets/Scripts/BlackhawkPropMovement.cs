@@ -14,6 +14,6 @@ public class BlackhawkPropMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.Translate( speed * Time.deltaTime * Vector3.down);
+        transform.Translate( speed * Time.deltaTime * Vector3.forward);
     }
 }
