@@ -16778,6 +16778,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 5595408320079276601, guid: 4c60933b292b608439b3e1f2c6f6db00, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4c60933b292b608439b3e1f2c6f6db00, type: 3}
 --- !u!33 &6655819507342554287
@@ -16819,7 +16823,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2908df5abe0e79347837b328d0dff4d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 250
+  speed: 200
 --- !u!4 &7778247649413282570
 Transform:
   m_ObjectHideFlags: 0
