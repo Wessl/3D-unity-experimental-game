@@ -6,14 +6,29 @@ public class AirplaneController : MonoBehaviour
 {
     public float forwardSpeed = 25f, strafeSpeed = 7.5f, hoverSpeed = 5f;
     private float _activeForwardSpeed, _activeStrafeSpeed, _activeHoverSpeed;
-    private float _forwardAcceleration = 2.5f, _strafeAcceleration = 2f, _hoverAcceleration = 2f; 
+    private float _forwardAcceleration = 2.5f, _strafeAcceleration = 2f, _hoverAcceleration = 2f;
+    public float lookRateSpeed = 90f;
+    private Vector2 lookInput, screenCenter, mouseDistance;
+    private float rollInput;
+    public float rollSpeed = 90f, rollAcceleration = 3.5f;
     void Start()
     {
-        
+        screenCenter.x = Screen.width / 2f;
+        screenCenter.y = Screen.height / 2f;
+        Cursor.lockState = CursorLockMode.Confined;
     }
 
     void Update()
     {
+        lookInput = Input.mousePosition;
+        mouseDistance = (lookInput - screenCenter) / screenCenter;
+
+        mouseDistance = Vector2.ClampMagnitude(mouseDistance, 1f);
+
+        rollInput = Mathf.Lerp(rollInput, Input.GetAxisRaw("Roll"), rollAcceleration * Time.deltaTime);
+        
+        transform.Rotate(-mouseDistance.y * lookRateSpeed * Time.deltaTime, mouseDistance.x * lookRateSpeed * Time.deltaTime, rollInput * rollSpeed * Time.deltaTime, Space.Self);
+
         _activeForwardSpeed = Mathf.Lerp(_activeForwardSpeed, Input.GetAxisRaw("Vertical") * forwardSpeed, _forwardAcceleration * Time.deltaTime);
         _activeStrafeSpeed = Mathf.Lerp(_activeStrafeSpeed, Input.GetAxisRaw("Horizontal") * strafeSpeed, _strafeAcceleration * Time.deltaTime);
         _activeHoverSpeed = Mathf.Lerp(_activeHoverSpeed, Input.GetAxisRaw("Hover") * hoverSpeed, _hoverAcceleration * Time.deltaTime);
