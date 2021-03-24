@@ -7,7 +7,7 @@ public class AsteroidGenerator : MonoBehaviour
     public GameObject[] asteroidPrefabs;
 
     public float xBound = 1000f, yBound = 1000f, zBound = 1000f;
-    [Range(0.0f, 30.0f)]
+    [Range(0.0f, 300.0f)]
     public float lowerSize = 0.5f, higherSize = 8f;
 
     public int asteroidAmount = 100;
@@ -17,7 +17,8 @@ public class AsteroidGenerator : MonoBehaviour
         // Spawn asteroids randomly in space
         for (int i = 0; i < asteroidAmount; i++)
         {
-            var rndAsteroidP_Idx = Random.Range(0, asteroidPrefabs.Length-1);
+            var rndAsteroidP_Idx = Random.Range(0, asteroidPrefabs.Length);
+            Debug.Log(rndAsteroidP_Idx);
             var rndxLoc = Random.Range(-xBound, xBound);
             var rndyLoc = Random.Range(-yBound, yBound);
             var rndzLoc = Random.Range(-zBound, zBound);

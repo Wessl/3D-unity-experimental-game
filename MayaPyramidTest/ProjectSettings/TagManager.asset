@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - Pyramid
+  - Beam
   layers:
   - Default
   - TransparentFX
