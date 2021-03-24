@@ -19,7 +19,10 @@ public class AsteroidGenerator : MonoBehaviour
             var rndxLoc = Random.Range(-xBound, xBound);
             var rndyLoc = Random.Range(-yBound, yBound);
             var rndzLoc = Random.Range(-zBound, zBound);
-            Instantiate(asteroidPrefabs[rndAsteroidP_Idx], new Vector3(rndxLoc, rndyLoc, rndzLoc), Quaternion.identity);
+            var rndQuat = Quaternion.Euler(Random.Range(0,360), Random.Range(0,360), Random.Range(0,360));
+            var rndScale = Random.Range(0.5f, 5f);
+            var ast = Instantiate(asteroidPrefabs[rndAsteroidP_Idx], new Vector3(rndxLoc, rndyLoc, rndzLoc), rndQuat);
+            ast.transform.localScale *= rndScale;
         }
     }
 }
