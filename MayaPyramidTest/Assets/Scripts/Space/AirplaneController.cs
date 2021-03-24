@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class AirplaneController : MonoBehaviour
 {
+    [SerializeField] private ParticleSystem exhaustFumes;
+    public int exhaustRateOverTime = 10000;
     public float forwardSpeed = 25f, strafeSpeed = 7.5f, hoverSpeed = 5f;
     private float _activeForwardSpeed, _activeStrafeSpeed, _activeHoverSpeed;
     private float _forwardAcceleration = 2.5f, _strafeAcceleration = 2f, _hoverAcceleration = 2f;
@@ -36,5 +38,15 @@ public class AirplaneController : MonoBehaviour
         transform.position += _activeStrafeSpeed * Time.deltaTime * transform.right;
         transform.position += _activeHoverSpeed * Time.deltaTime * transform.up;
 
+        var exhaustEmission = exhaustFumes.emission;
+        if (Input.GetAxisRaw("Vertical") != 0)
+        {
+            exhaustEmission.enabled = true;
+            exhaustEmission.rateOverTime = Mathf.Lerp(100, 10000, 2);
+        }
+        else
+        {
+            exhaustEmission.enabled = false; 
+        }
     }
 }
