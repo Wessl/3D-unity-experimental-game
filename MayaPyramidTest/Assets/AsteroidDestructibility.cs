@@ -9,7 +9,6 @@ public class AsteroidDestructibility : MonoBehaviour
     public GameObject fx;
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("i am asteroid, i am hit");
         var particels = Instantiate(fx, transform.position, Quaternion.identity);
         particels.transform.localScale = transform.localScale;
         Destroy(gameObject);
