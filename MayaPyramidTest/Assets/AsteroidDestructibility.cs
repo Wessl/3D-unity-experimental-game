@@ -10,7 +10,7 @@ public class AsteroidDestructibility : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         var particels = Instantiate(fx, transform.position, Quaternion.identity);
-        particels.transform.localScale = transform.localScale;
+        particels.transform.localScale = transform.localScale*0.3f;
         Destroy(gameObject);
         
     }

@@ -16,11 +16,17 @@ public class AirplaneController : MonoBehaviour
     private float rollInput;
     public float rollSpeed = 90f, rollAcceleration = 3.5f;
     public GameObject projectile;
+    public GameObject[] shootBlast;
+    private ParticleSystem[] shootBlastPS;
     void Start()
     {
+        shootBlastPS = new ParticleSystem[2];
+        shootBlast = GameObject.FindGameObjectsWithTag("Blast");
         screenCenter.x = Screen.width / 2f;
         screenCenter.y = Screen.height / 2f;
         Cursor.lockState = CursorLockMode.Confined;
+        shootBlastPS[0] = shootBlast[0].GetComponent<ParticleSystem>();
+        shootBlastPS[1] = shootBlast[1].GetComponent<ParticleSystem>();
     }
 
     void Update()
@@ -64,6 +70,17 @@ public class AirplaneController : MonoBehaviour
             var targetRightPos = transform.GetChild(4).position;
             Instantiate(projectile, targetLeftPos, targetRotation);
             Instantiate(projectile, targetRightPos, targetRotation);
+            var lightIntensity = Mathf.Lerp(0, 100f, 10);
+            shootBlast[0].GetComponent<Light>().intensity = lightIntensity;
+            shootBlast[1].GetComponent<Light>().intensity = lightIntensity;
+            shootBlastPS[0].Play();
+            shootBlastPS[1].Play();
+        }
+        else
+        {
+            var lightIntensity = Mathf.Lerp(100f, 0, 10);
+            shootBlast[0].GetComponent<Light>().intensity = lightIntensity;
+            shootBlast[1].GetComponent<Light>().intensity = lightIntensity;
         }
     }
 }

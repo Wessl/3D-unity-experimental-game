@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Pyramid
   - Beam
+  - Blast
   layers:
   - Default
   - TransparentFX
