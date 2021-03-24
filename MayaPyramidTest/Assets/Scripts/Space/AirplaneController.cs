@@ -5,6 +5,7 @@ using UnityEngine;
 public class AirplaneController : MonoBehaviour
 {
     [SerializeField] private ParticleSystem exhaustFumes;
+    [SerializeField] private AudioSource exhaustSound;
     public int exhaustRateOverTime = 10000;
     public float forwardSpeed = 25f, strafeSpeed = 7.5f, hoverSpeed = 5f;
     private float _activeForwardSpeed, _activeStrafeSpeed, _activeHoverSpeed;
@@ -43,9 +44,11 @@ public class AirplaneController : MonoBehaviour
         {
             exhaustEmission.enabled = true;
             exhaustEmission.rateOverTime = Mathf.Lerp(100, 10000, 2);
+            //exhaustSound.volume = Mathf.Lerp(0, 1, 0.1f);
         }
         else
         {
+            //exhaustSound.volume = Mathf.Lerp(1, 0, 0.1f);
             exhaustEmission.enabled = false; 
         }
     }
