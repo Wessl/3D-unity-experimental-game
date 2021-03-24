@@ -7,6 +7,8 @@ public class AsteroidGenerator : MonoBehaviour
     public GameObject[] asteroidPrefabs;
 
     public float xBound = 1000f, yBound = 1000f, zBound = 1000f;
+    [Range(0.0f, 30.0f)]
+    public float lowerSize = 0.5f, higherSize = 8f;
 
     public int asteroidAmount = 100;
     // Start is called before the first frame update

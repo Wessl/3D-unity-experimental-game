@@ -262,6 +262,8 @@ MonoBehaviour:
   xBound: 333
   yBound: 333
   zBound: 333
+  lowerSize: 0.5
+  higherSize: 8
   asteroidAmount: 100
 --- !u!4 &140077954
 Transform:
@@ -5446,7 +5448,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3273765205690978002, guid: 3c07a098a61365a4f81ae2f1caa4a48e, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.14616585
+      value: -74.2
       objectReference: {fileID: 0}
     - target: {fileID: 3273765205690978002, guid: 3c07a098a61365a4f81ae2f1caa4a48e, type: 3}
       propertyPath: m_LocalPosition.y
@@ -5484,6 +5486,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3273765205690978003, guid: 3c07a098a61365a4f81ae2f1caa4a48e, type: 3}
+      propertyPath: maxForceUpdate
+      value: 20
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3c07a098a61365a4f81ae2f1caa4a48e, type: 3}
 --- !u!1001 &5157810166605047115
@@ -5493,6 +5499,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5157810165636367249, guid: d5f6602ce9cd029448e11a5182a2d7a9, type: 3}
+      propertyPath: maxForceUpdate
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 5157810165636367250, guid: d5f6602ce9cd029448e11a5182a2d7a9, type: 3}
       propertyPath: m_Name
       value: Asteroid_2
@@ -5507,7 +5517,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5157810165636367255, guid: d5f6602ce9cd029448e11a5182a2d7a9, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 7.692914
+      value: 24.03
       objectReference: {fileID: 0}
     - target: {fileID: 5157810165636367255, guid: d5f6602ce9cd029448e11a5182a2d7a9, type: 3}
       propertyPath: m_LocalPosition.z
