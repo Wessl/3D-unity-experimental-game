@@ -94,6 +94,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hp: 1
   fx: {fileID: 3450559369337970169, guid: b6a78b1c9334e3c4babc45fc3a833d8c, type: 3}
+  sfxPlayerObject: {fileID: 4195591885215578451, guid: 9f4525e5c15d3b84f9e8bc91ab84a387, type: 3}
 --- !u!54 &272302038
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -138,6 +139,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hp: 1
   fx: {fileID: 3450559369337970169, guid: b6a78b1c9334e3c4babc45fc3a833d8c, type: 3}
+  sfxPlayerObject: {fileID: 0}
 --- !u!1001 &5157810166748899237
 PrefabInstance:
   m_ObjectHideFlags: 0

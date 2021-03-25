@@ -155,7 +155,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   exhaustFumes: {fileID: 633590887}
-  exhaustSound: {fileID: 1479932584}
+  airplaneSoundPlayer: {fileID: 1479932584}
+  shootSoundZap: {fileID: 8300000, guid: 064d4825fcf49074184d90d0c1e9507c, type: 3}
   exhaustRateOverTime: 10000
   forwardSpeed: 40
   strafeSpeed: 10
@@ -5393,6 +5394,11 @@ Transform:
   m_Father: {fileID: 41763167}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1361686576 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4195591885215578451, guid: 9f4525e5c15d3b84f9e8bc91ab84a387, type: 3}
+  m_PrefabInstance: {fileID: 4195591886576060771}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1479932582
 GameObject:
   m_ObjectHideFlags: 0
@@ -5431,14 +5437,14 @@ AudioSource:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1479932582}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: da2b9f77a2431eb408bb086dab9ccb0c, type: 3}
-  m_PlayOnAwake: 1
-  m_Volume: 0
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 1
   m_Pitch: 1
-  Loop: 1
+  Loop: 0
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -15394,6 +15400,68 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hp: 1
   fx: {fileID: 1687383437}
+  sfxPlayerObject: {fileID: 0}
+--- !u!1001 &4195591886576060771
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4195591885215578448, guid: 9f4525e5c15d3b84f9e8bc91ab84a387, type: 3}
+      propertyPath: m_RootOrder
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4195591885215578448, guid: 9f4525e5c15d3b84f9e8bc91ab84a387, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4195591885215578448, guid: 9f4525e5c15d3b84f9e8bc91ab84a387, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4195591885215578448, guid: 9f4525e5c15d3b84f9e8bc91ab84a387, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4195591885215578448, guid: 9f4525e5c15d3b84f9e8bc91ab84a387, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4195591885215578448, guid: 9f4525e5c15d3b84f9e8bc91ab84a387, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4195591885215578448, guid: 9f4525e5c15d3b84f9e8bc91ab84a387, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4195591885215578448, guid: 9f4525e5c15d3b84f9e8bc91ab84a387, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4195591885215578448, guid: 9f4525e5c15d3b84f9e8bc91ab84a387, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4195591885215578448, guid: 9f4525e5c15d3b84f9e8bc91ab84a387, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4195591885215578448, guid: 9f4525e5c15d3b84f9e8bc91ab84a387, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4195591885215578449, guid: 9f4525e5c15d3b84f9e8bc91ab84a387, type: 3}
+      propertyPath: MaxDistance
+      value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: 4195591885215578451, guid: 9f4525e5c15d3b84f9e8bc91ab84a387, type: 3}
+      propertyPath: m_Name
+      value: SFXPlayer
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 9f4525e5c15d3b84f9e8bc91ab84a387, type: 3}
 --- !u!1001 &5157810166605047115
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -15401,6 +15469,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1945101046, guid: d5f6602ce9cd029448e11a5182a2d7a9, type: 3}
+      propertyPath: sfxPlayerObject
+      value: 
+      objectReference: {fileID: 1361686576}
     - target: {fileID: 5157810165636367250, guid: d5f6602ce9cd029448e11a5182a2d7a9, type: 3}
       propertyPath: m_Name
       value: Asteroid_2

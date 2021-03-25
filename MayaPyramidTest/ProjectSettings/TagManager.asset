@@ -7,6 +7,7 @@ TagManager:
   - Pyramid
   - Beam
   - Blast
+  - SFXPlayer
   layers:
   - Default
   - TransparentFX

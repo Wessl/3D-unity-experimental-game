@@ -6,7 +6,8 @@ using UnityEngine;
 public class AirplaneController : MonoBehaviour
 {
     [SerializeField] private ParticleSystem exhaustFumes;
-    [SerializeField] private AudioSource exhaustSound;
+    [SerializeField] private AudioSource airplaneSoundPlayer;
+    public AudioClip shootSoundZap;
     public int exhaustRateOverTime = 10000;
     public float forwardSpeed = 25f, strafeSpeed = 7.5f, hoverSpeed = 5f;
     private float _activeForwardSpeed, _activeStrafeSpeed, _activeHoverSpeed;
@@ -75,6 +76,7 @@ public class AirplaneController : MonoBehaviour
             shootBlast[1].GetComponent<Light>().intensity = lightIntensity;
             shootBlastPS[0].Play();
             shootBlastPS[1].Play();
+            airplaneSoundPlayer.PlayOneShot(shootSoundZap);
         }
         else
         {
