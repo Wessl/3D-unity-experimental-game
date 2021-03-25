@@ -11,6 +11,12 @@ public class AsteroidGenerator : MonoBehaviour
     public float lowerSize = 0.5f, higherSize = 8f;
 
     public int asteroidAmount = 100;
+    
+    public int AsteroidAmount   // property
+    {
+        get => asteroidAmount; // get method
+        //set => asteroidAmount = value; // set method
+    }
     // Start is called before the first frame update
     void Start()
     {

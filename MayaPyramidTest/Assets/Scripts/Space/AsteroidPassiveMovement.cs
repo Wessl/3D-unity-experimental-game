@@ -16,7 +16,7 @@ public class AsteroidPassiveMovement : MonoBehaviour
         InvokeRepeating("SlightMovementUpdate", 0f, 1f);
         rb = GetComponent<Rigidbody>();
         rotationVector = new Vector3(Random.Range(0, 30), Random.Range(0, 30), Random.Range(0, 30));
-        maxForceUpdate *= (transform.localScale.z / 7);
+        maxForceUpdate *= (transform.localScale.z / 2);
     }
 
     void SlightMovementUpdate()
