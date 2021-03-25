@@ -9,3 +9,5 @@ Credits/Sources/Etc:
 * Spaceship flying was made possible by [this](https://www.youtube.com/watch?v=J6QR4KzNeJU) tutorial by gamesplusjames
 * Some character models / animations / materials from: https://www.mixamo.com/
 * Various asset store packages ([Skybox materials](https://assetstore.unity.com/packages/2d/textures-materials/sky/skybox-series-free-103633))
+
+Space-flight looks a little something like this: https://giphy.com/gifs/vZu9bgXkkyVGA2Dblj/fullscreen  (I have since added shooting mechanics, you can destroy the asteroids, cool laser bullets with custom shaders, muzzle flashes, asteroid collision physics, and more.)
