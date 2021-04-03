@@ -9,8 +9,16 @@ using UnityEngine.SceneManagement;
 */
 public class MainMenuButtons : MonoBehaviour
 {
+    public Animator transition;
     public void ClickPlay()
     {
-        SceneManager.LoadScene(1);
+        StartCoroutine(LoadAfterTime(1, 0.5f));
+    }
+
+    IEnumerator LoadAfterTime(int lvlIndex, float time)
+    {
+        transition.SetTrigger("Start");
+        yield return new WaitForSeconds(time);
+        SceneManager.LoadScene(lvlIndex);
     }
 }
