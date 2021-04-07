@@ -7,8 +7,16 @@ public class SFXPlayer : MonoBehaviour
     public AudioClip asteroidDestroyedSFX;
     public AudioSource source;
 
+    private float _sfxVolume;
+
+    void Start()
+    {
+        _sfxVolume = PlayerPrefs.GetFloat("sfxSliderValue");
+    }
+
     public void PlayAsteroidDestroyedSFX()
     {
-        source.PlayOneShot(asteroidDestroyedSFX);
+        _sfxVolume = PlayerPrefs.GetFloat("sfxSliderValue");
+        source.PlayOneShot(asteroidDestroyedSFX, _sfxVolume);
     }
 }

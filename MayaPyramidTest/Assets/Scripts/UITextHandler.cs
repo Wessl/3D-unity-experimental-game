@@ -22,7 +22,8 @@ public class UITextHandler : MonoBehaviour
 
     public void UpdateAsteroidUIText()
     {
-        _asteroidDestroyedText.text = _destroyedAmount + "/" + asteroidGeneratorRef.asteroidAmount;
+        _asteroidDestroyedText.text = 
+            _destroyedAmount + "/" + asteroidGeneratorRef.asteroidAmount;
         _destroyedAmount++;
         // Story reason
         if (_destroyedAmount == 50)
