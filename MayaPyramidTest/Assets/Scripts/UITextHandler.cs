@@ -8,6 +8,7 @@ public class UITextHandler : MonoBehaviour
 {
     private TextMeshProUGUI _asteroidDestroyedText;
     [SerializeField] private AsteroidGenerator asteroidGeneratorRef;
+    [SerializeField] private PauseGame _pauseGameRef;
     private int _destroyedAmount;
     private SpaceStoryHandler spaceStoryHandler;
 
@@ -33,4 +34,10 @@ public class UITextHandler : MonoBehaviour
             spaceStoryHandler.DisplayNextLine();
         }
     }
+
+    public void ClickResume()
+    {
+        _pauseGameRef.Unpause();
+    }
+    
 }

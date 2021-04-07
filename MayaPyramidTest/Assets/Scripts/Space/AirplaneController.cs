@@ -61,8 +61,11 @@ public class AirplaneController : MonoBehaviour
             //exhaustSound.volume = Mathf.Lerp(1, 0, 0.1f);
             exhaustEmission.enabled = false; 
         }
-
-        if (Input.GetButtonDown("Fire1"))
+        
+        // Handles firing the main guns. 
+        // Will occur when any button designated as Fire1 is down, 
+        // as well as the timescale not being 0, i.e. game is not paused. 
+        if (Input.GetButtonDown("Fire1") && Time.timeScale!=0)
         {
             var transRot = transform.rotation;
             var targetRotation = transform.rotation * Quaternion.Euler(90, 0, 0);
