@@ -8,7 +8,7 @@ TagManager:
   - Beam
   - Blast
   - SFXPlayer
-  - AsteroidAmountUIText
+  - Canvas
   layers:
   - Default
   - TransparentFX

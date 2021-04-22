@@ -14,7 +14,8 @@ public class UITextHandler : MonoBehaviour
 
     private void Start()
     {
-        _asteroidDestroyedText = GetComponent<TextMeshProUGUI>();
+        _asteroidDestroyedText = GetComponentInChildren<TextMeshProUGUI>();
+        Debug.Log(_asteroidDestroyedText.name);
         _destroyedAmount = 0;
         UpdateAsteroidUIText();
         spaceStoryHandler = GameObject.Find("SpaceStoryHandler").GetComponent<SpaceStoryHandler>();

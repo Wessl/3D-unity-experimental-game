@@ -14,7 +14,7 @@ public class AsteroidDestructibility : MonoBehaviour
         particels.transform.localScale = transform.localScale*0.3f;
         var localSFXPlayer = Instantiate(sfxPlayerObject, transform.position, Quaternion.identity);
         localSFXPlayer.GetComponent<SFXPlayer>().PlayAsteroidDestroyedSFX();
-        GameObject.FindWithTag("AsteroidAmountUIText").GetComponent<UITextHandler>().UpdateAsteroidUIText();
+        GameObject.FindWithTag("Canvas").GetComponent<UITextHandler>().UpdateAsteroidUIText();
         Destroy(gameObject);
         
     }
